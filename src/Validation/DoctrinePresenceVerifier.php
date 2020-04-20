@@ -93,7 +93,7 @@ class DoctrinePresenceVerifier implements PresenceVerifierInterface
         $em      = $this->getEntityManager($collection);
         $builder = $em->createQueryBuilder();
 
-        $builder->select('count(e)')->from($collection, 'e');
+        $builder->select('count(IDENTITY(e))')->from($collection, 'e');
 
         return $builder;
     }
